@@ -364,6 +364,15 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .hero-content {
+    padding: 0 20px; /* 🔥 afasta das bordas */
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
     text-align: center;
