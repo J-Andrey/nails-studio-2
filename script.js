@@ -57,3 +57,28 @@ document.addEventListener("keydown", (e) => {
     lightbox.style.display = "none";
   }
 });
+
+
+/* ===== CARROSSEL (NOVO - NÃO REMOVE NADA) ===== */
+const galeria = document.querySelector(".galeria");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+
+/* só executa se existir (evita erro) */
+if (galeria && prev && next) {
+
+  prev.addEventListener("click", () => {
+    galeria.scrollBy({
+      left: -300,
+      behavior: "smooth"
+    });
+  });
+
+  next.addEventListener("click", () => {
+    galeria.scrollBy({
+      left: 300,
+      behavior: "smooth"
+    });
+  });
+
+}

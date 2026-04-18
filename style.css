@@ -221,6 +221,82 @@ section {
   border-radius: 15px;
 }
 
+/* ===== UPGRADE CARROSSEL (SEM QUEBRAR NADA) ===== */
+
+/* deixa o scroll suave de verdade */
+.galeria {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 40px 20px;
+}
+
+/* melhora o tamanho dos cards no mobile */
+.galeria-item {
+  min-width: 80%;
+  max-width: 300px;
+  flex-shrink: 0;
+}
+
+/* animação leve */
+.galeria-item img {
+  transition: 0.3s;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== WRAPPER PARA SETAS ===== */
+.galeria-wrapper {
+  position: relative;
+}
+
+/* ===== BOTÕES (SETAS) ===== */
+.galeria-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+
+  background: rgba(0,0,0,0.7);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.galeria-btn:hover {
+  background: var(--primary);
+}
+
+.galeria-btn i {
+  color: #fff;
+}
+
+/* posição */
+.galeria-btn.prev {
+  left: 5px;
+}
+
+.galeria-btn.next {
+  right: 5px;
+}
+
+/* ===== DESKTOP AJUSTE ===== */
+@media(min-width:768px){
+
+  .galeria-item {
+    min-width: 250px;
+  }
+
+}
+
 /* SOBRE */
 .sobre-grid {
   display: grid;
@@ -287,11 +363,14 @@ section {
   align-items: center;
   justify-content: center;
   animation: pulse 2s infinite;
+  text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .whatsapp-float i {
   color: white;
   font-size: 28px;
+  text-decoration: none;
 }
 
 /* LIGHTBOX */
@@ -311,6 +390,8 @@ section {
   font-size: 40px;
 }
 
+
+
 /* RESPONSIVO */
 @media(max-width:900px){
   .cards { grid-template-columns: repeat(2,1fr); }
@@ -323,6 +404,11 @@ section {
   .menu-toggle {
     display: flex;
   }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
 
   /* MENU SLIDE */
   .nav {
@@ -359,7 +445,7 @@ section {
   }
 
   .btn {
-    width: 100%;
+    width: 80%;
     justify-content: center;
   }
 
