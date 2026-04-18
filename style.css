@@ -336,6 +336,10 @@ section {
 
 @media(max-width:768px){
 
+  .menu-toggle {
+  display: block;
+}
+
   .hero {
     height: 100vh;
     padding: 0 15px; /* 🔥 margem lateral geral */
@@ -359,6 +363,26 @@ section {
     margin-bottom: 25px;
     opacity: 0.9;
   }
+
+  .nav {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  background: #1a1a1a;
+  width: 220px;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+}
+
+.nav ul {
+  flex-direction: column;
+  padding: 20px;
+}
+
+.nav.active {
+  display: flex;
+}
 
   .btn {
     width: 100%; /* 🔥 botão ocupa largura */
