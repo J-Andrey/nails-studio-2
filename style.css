@@ -65,7 +65,7 @@ body {
   font-weight: 500;
 }
 
-/* ===== BOTÃO HAMBURGUER ===== */
+/* MENU HAMBURGUER */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -82,7 +82,6 @@ body {
   transition: 0.3s;
 }
 
-/* ANIMAÇÃO X */
 .menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -93,7 +92,7 @@ body {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* ===== OVERLAY ===== */
+/* OVERLAY */
 .overlay {
   position: fixed;
   inset: 0;
@@ -165,14 +164,13 @@ section {
   color: var(--white);
 }
 
-/* SERVIÇOS */
+/* CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 25px;
 }
 
-/* CARD */
 .card {
   background: var(--card);
   padding: 15px;
@@ -203,6 +201,9 @@ section {
   gap: 15px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 40px 20px;
 }
 
 .galeria::-webkit-scrollbar {
@@ -210,35 +211,17 @@ section {
 }
 
 .galeria-item {
-  min-width: 250px;
+  min-width: 80%;
+  max-width: 300px;
+  flex-shrink: 0;
   scroll-snap-align: center;
 }
 
 .galeria-item img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
   border-radius: 15px;
-}
-
-/* ===== UPGRADE CARROSSEL (SEM QUEBRAR NADA) ===== */
-
-/* deixa o scroll suave de verdade */
-.galeria {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  padding: 10px 40px 20px;
-}
-
-/* melhora o tamanho dos cards no mobile */
-.galeria-item {
-  min-width: 80%;
-  max-width: 300px;
-  flex-shrink: 0;
-}
-
-/* animação leve */
-.galeria-item img {
   transition: 0.3s;
 }
 
@@ -246,26 +229,22 @@ section {
   transform: scale(1.05);
 }
 
-/* ===== WRAPPER PARA SETAS ===== */
+/* BOTÕES GALERIA */
 .galeria-wrapper {
   position: relative;
 }
 
-/* ===== BOTÕES (SETAS) ===== */
 .galeria-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
-
   background: rgba(0,0,0,0.7);
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   z-index: 10;
   transition: 0.3s;
@@ -275,27 +254,8 @@ section {
   background: var(--primary);
 }
 
-.galeria-btn i {
-  color: #fff;
-}
-
-/* posição */
-.galeria-btn.prev {
-  left: 5px;
-}
-
-.galeria-btn.next {
-  right: 5px;
-}
-
-/* ===== DESKTOP AJUSTE ===== */
-@media(min-width:768px){
-
-  .galeria-item {
-    min-width: 250px;
-  }
-
-}
+.galeria-btn.prev { left: 5px; }
+.galeria-btn.next { right: 5px; }
 
 /* SOBRE */
 .sobre-grid {
@@ -329,11 +289,12 @@ section {
   overflow: hidden;
 }
 
-/* FOOTER */
+/* ===== FOOTER PREMIUM ===== */
 .footer {
   background: #000;
   color: #ccc;
   padding: 50px 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .footer-grid {
@@ -342,12 +303,48 @@ section {
   gap: 30px;
 }
 
+.footer-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .footer h3 {
   color: white;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer a i {
+  width: 20px;
+  text-align: center;
 }
 
 .footer a:hover {
   color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+  font-size: 13px;
+  color: #888;
 }
 
 /* WHATSAPP */
@@ -364,13 +361,12 @@ section {
   justify-content: center;
   animation: pulse 2s infinite;
   text-decoration: none;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .whatsapp-float i {
   color: white;
   font-size: 28px;
-  text-decoration: none;
 }
 
 /* LIGHTBOX */
@@ -390,8 +386,6 @@ section {
   font-size: 40px;
 }
 
-
-
 /* RESPONSIVO */
 @media(max-width:900px){
   .cards { grid-template-columns: repeat(2,1fr); }
@@ -401,16 +395,10 @@ section {
 
 @media(max-width:768px){
 
-  .menu-toggle {
-    display: flex;
-  }
+  .menu-toggle { display: flex; }
 
-  .cards {
-    grid-template-columns: 1fr;
-  }
+  .cards { grid-template-columns: 1fr; }
 
-
-  /* MENU SLIDE */
   .nav {
     position: fixed;
     top: 0;
@@ -446,6 +434,19 @@ section {
 
   .btn {
     width: 80%;
+    justify-content: center;
+  }
+
+  .whatsapp-float {
+    margin-bottom: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer a {
     justify-content: center;
   }
 
