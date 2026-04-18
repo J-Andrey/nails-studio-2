@@ -1,0 +1,385 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  caret-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* CORES */
+:root {
+  --primary: #ff4d8d;
+  --bg: #0f0f0f;
+  --card: #1a1a1a;
+  --text: #ccc;
+  --white: #ffffff;
+}
+
+/* BODY */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* HEADER */
+.header {
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo img {
+  height: 70px;
+}
+
+/* NAV */
+.nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* MENU HAMBURGUER */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+  url('https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg') center/cover;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: var(--white);
+}
+
+.hero p {
+  margin: 20px 0;
+}
+
+/* BOTÃO */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: white;
+  padding: 12px 26px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 0;
+}
+
+/* TITULOS */
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--white);
+}
+
+/* SERVIÇOS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin: 10px 0;
+  color: var(--white);
+}
+
+.card p {
+  font-size: 14px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* GALERIA - CARROSSEL */
+.galeria {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.galeria::-webkit-scrollbar {
+  display: none;
+}
+
+.galeria-item {
+  min-width: 250px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.05);
+}
+
+/* SOBRE */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sobre-img {
+  height: 300px;
+  border-radius: 15px;
+  background: url('https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg') center/cover;
+}
+
+/* REVIEWS */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.review {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* MAPA */
+.mapa-container {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* FOOTER */
+.footer {
+  background: #000;
+  color: #ccc;
+  padding: 50px 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+.footer h3 {
+  color: white;
+}
+
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer a:hover {
+  color: var(--primary);
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 60px;
+  height: 60px;
+
+  background: #25D366;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999;
+  text-decoration: none;
+
+  animation: pulse 2s infinite; /* 🔥 AQUI */
+  transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float i {
+  color: white;
+  font-size: 28px;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+#close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+
+  .cards {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: #1a1a1a;
+    width: 220px;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+}
+
+/* ANIMAÇÃO */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37,211,102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37,211,102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37,211,102, 0);
+  }
+}
